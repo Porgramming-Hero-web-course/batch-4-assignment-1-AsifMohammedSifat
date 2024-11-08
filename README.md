@@ -14,12 +14,11 @@ function add_money(savingAmount) {
 }
 ```
 
-If we call the function add_money(1000 + '1000') with the parameter, the current balance will be 10001000. This can be a danger!!!
+If we call the function add_money('1000') with the parameter, the current balance will be 10001000. (assume current balance is 1000) This can be a danger!!!
 
 To solve this problem, we need to set a guard that can monitor these issues. That's why a type guard is necessary.
 
 TypeScript is concerned with types. There are 3 types of guards:
-
 1. typeof
 2. in
 3. instanceof
@@ -27,7 +26,6 @@ TypeScript is concerned with types. There are 3 types of guards:
 In TypeScript, type guards are used to narrow the types within conditional blocks, ensuring more accurate type handling. Let's take a closer look at these types:
 
 # 1. typeof Type Guard:
-
 This checks the type of a variable at runtime.
 
 ```javascript
@@ -35,13 +33,12 @@ Syntax: typeof variable === "type";
 ```
 
 Example:
-
 ```javascript
 function add_money(savingAmount: string | number) {
   if (typeof savingAmount !== "string") {
     currentBalance += savingAmount;
   } else {
-    //handle other operations
+    //will handle other operations
   }
 }
 ```
@@ -74,7 +71,6 @@ This checks if an object is an instance of a particular class.
 ```javascript
 Syntax: variable instanceof Class
 ```
-
 Example:
 ```javascript
 class Dog {
