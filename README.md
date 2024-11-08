@@ -23,7 +23,8 @@ TypeScript is concerned with types. There are 3 types of guards:
 1. typeof
 2. in
 3. instanceof
-   In TypeScript, type guards are used to narrow the types within conditional blocks, ensuring more accurate type handling. Let's take a closer look at these types:
+
+In TypeScript, type guards are used to narrow the types within conditional blocks, ensuring more accurate type handling. Let's take a closer look at these types:
 
 # 1. typeof Type Guard:
 
@@ -40,10 +41,11 @@ function add_money(savingAmount: string | number) {
   if (typeof savingAmount !== "string") {
     currentBalance += savingAmount;
   } else {
-    console.log("Wrong Input");
+    //handle other operations
   }
 }
 ```
+Here, we are first checking if the input is a string or not. If the type of input is not a string, we are adding money to the main balance. Otherwise, we handle other operations.
 
 # 2. in Type Guard:
 This checks if a property exists in an object.
@@ -64,6 +66,7 @@ function move(people: rich | poor) {
   }
 }
 ```
+Here, we are checking if the input object has a car property. If the input is of type rich, it will have the car property, so we set people.car = true. If the input is of type poor, it will have the taxi property, so we set people.taxi = true. This way, we ensure the correct property is accessed based on the type of the object.
 
 # 3. instanceof Type Guard:
 This checks if an object is an instance of a particular class.
@@ -93,5 +96,6 @@ function makeSound(pet: Dog | Cat) {
   }
 }
 ```
+Here, we are checking if the input pet is an instance of the Dog class. If it is, we call the bark method. If it's not (meaning it's an instance of the Cat class), we call the meow method. This way, we handle the behavior differently depending on whether the pet is a dog or a cat.
 
-For more accurate type handling and to avoid errors related to mismatched types, type guards are the best choice.
+In summary, for more accurate type handling and to avoid errors related to mismatched types, type guards are the best choice.
